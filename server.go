@@ -36,16 +36,16 @@ func main() {
 		}
 	})
 
-	e.GET("/clothes", getClothes)
-	e.GET("/gear/:id", getGear)
-	e.PUT("/gear/:id", updateGear)
-	e.POST("/gear", createGear)
-	e.DELETE("/gear/:id", deleteGear)
+	e.GET("/gears", getGears)
+	e.GET("/gears/:id", getGear)
+	e.PUT("/gears/:id", updateGear)
+	e.POST("/gears", createGear)
+	e.DELETE("/gears/:id", deleteGear)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
 
-func getClothes(c echo.Context) error {
+func getGears(c echo.Context) error {
 	db := c.Get("db").(*gorm.DB)
 	var gears []Gear
 	db.Find(&gears)
