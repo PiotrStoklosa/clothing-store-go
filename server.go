@@ -36,11 +36,14 @@ func main() {
 		}
 	})
 
-	e.GET("/gears", getGears)
-	e.GET("/gears/:id", getGear)
-	e.PUT("/gears/:id", updateGear)
-	e.POST("/gears", createGear)
-	e.DELETE("/gears/:id", deleteGear)
+	gearById := "/gears/:id"
+	gears := "/gears"
+
+	e.GET(gears, getGears)
+	e.GET(gearById, getGear)
+	e.PUT(gearById, updateGear)
+	e.POST(gears, createGear)
+	e.DELETE(gearById, deleteGear)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
